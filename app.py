@@ -35,6 +35,10 @@ def remove_markdown(text):
     text = re.sub(r'[_]', '', text)   # Remove italic markers if any
     text = re.sub(r'[`]', '', text)   # Remove inline code markers if any
     text = re.sub(r'~', '', text)     # Remove strikethrough markers if any
+
+@app.route('/')
+def index():
+    return app.send_static_file('index.html')
     return text
 
 # API endpoint to receive symptoms and return herbal remedies
