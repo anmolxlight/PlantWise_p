@@ -157,7 +157,7 @@
 
                 // Send the symptoms to the Flask server
                 $.ajax({
-                    url: 'https://plantwisebackend.onrender.com/',
+                    url: 'https://plantwisebackend.onrender.com/get-remedy',
                     type: 'POST',
                     contentType: 'application/json',
                     data: JSON.stringify({ symptoms: symptoms }),
