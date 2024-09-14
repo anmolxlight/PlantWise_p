@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 import cohere
 import re
@@ -7,7 +7,7 @@ app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
 
 # Replace with your Cohere API key
-API_KEY = 'KTn7ndyWTyFbx9yGwzrS27JYOy0TRjttcObYzk5t'
+API_KEY = '2nPTDE3qeU9vLgqztESRgQIW3K4PiraOnXImjomr'
 co = cohere.Client(API_KEY)
 
 # Function to generate AI response using Cohere
@@ -35,11 +35,12 @@ def remove_markdown(text):
     text = re.sub(r'[_]', '', text)   # Remove italic markers if any
     text = re.sub(r'[`]', '', text)   # Remove inline code markers if any
     text = re.sub(r'~', '', text)     # Remove strikethrough markers if any
+    return text
 
+# Serve the index.html file
 @app.route('/')
 def index():
-    return app.send_static_file('index.html')
-    return text
+    return send_from_directory('static', 'index.html')
 
 # API endpoint to receive symptoms and return herbal remedies
 @app.route('/get_remedy', methods=['POST'])
