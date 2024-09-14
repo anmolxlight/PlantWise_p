@@ -59,9 +59,10 @@ def get_remedy():
     # Generate a domain-specific prompt for Cohere
     ai_prompt = f"""
     The user has the following symptoms: {', '.join(user_symptoms)}.
-    First, identify potential diseases or health conditions that may be associated with these symptoms.
-    Then, as an herbal medicine assistant, suggest plant-based herbal medicines or mixtures of herbs traditionally used in herbal or Ayurvedic treatments for these conditions.
-    Focus only on natural remedies using herbs and plants, and avoid recommending any pharmaceutical or synthetic treatments.
+    Identify potential diseases or health conditions associated with these symptoms.
+    Suggest concise plant-based herbal medicines or mixtures traditionally used in herbal or Ayurvedic treatments for these conditions.
+    Include a brief list of things to avoid while dealing with these conditions.
+    No additional details or descriptions.
     """
 
     # Get the AI response
